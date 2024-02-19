@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class CalculadoraAreas {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitar al usuario el radio grande (R)
+        System.out.print("Ingrese el radio grande (R): ");
+        double radioGrande = scanner.nextDouble();
+
+        // Solicitar al usuario el radio pequeño (r)
+        System.out.print("Ingrese el radio pequeño (r): ");
+        double radioPequeño = scanner.nextDouble();
+
+        // Calcular y mostrar el área de la corona circular
+        double areaCorona = calcularAreaCorona(radioGrande, radioPequeño);
+        System.out.println("El área de la corona circular es: " + areaCorona);
+    }
+
+    // Función para calcular el área de un círculo
+    public static double calcularAreaCirculo(double radio) {
+        return Math.PI * radio * radio;
+    }
+
+    // Función para calcular el área de la corona circular
+    public static double calcularAreaCorona(double radioGrande, double radioPequeño) {
+        // Calcular el área del círculo grande
+        double areaCirculoGrande = calcularAreaCirculo(radioGrande);
+
+        // Calcular el área del círculo pequeño
+        double areaCirculoPequeño = calcularAreaCirculo(radioPequeño);
+
+        // Calcular y retornar el área de la corona circular
+        return areaCirculoGrande - areaCirculoPequeño;
+    }
+}
